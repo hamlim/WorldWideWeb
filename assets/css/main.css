@@ -159,7 +159,7 @@ a:active {
 [data-css-mesh] {
   width: 100vw;
   overflow: hidden;
-  height: 35vh;
+  height: 10rem;
   position: absolute;
   z-index: -2;
   top: 0;

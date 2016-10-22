@@ -156,6 +156,17 @@ a:active {
 }
 
 
+[data-css-mesh] {
+  width: 100vw;
+  overflow: hidden;
+  height: 35vh;
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  box-shadow: 0 1em 9em 1em var(--green);
+}
+
 header {
   height: 100vh;
   width: 100vw;
@@ -171,16 +182,16 @@ header::after {
   @apply --tac;
   font-size: 2.5em;
 }
-[data-css-header] {
-  @apply --tac;
-  color: var(--dgray);
-  transition: color 1s cubic-bezier(.3, 0, 0, 0.8);
-  will-change: color;
-}
-[data-css-header]:hover {
-  color: var(--black);
-  transition: color 1s cubic-bezier(.3, 0, 0, 0.8);
-}
+  [data-css-header] {
+    @apply --tac;
+    color: var(--dgray);
+    transition: color 1s cubic-bezier(.3, 0, 0, 0.8);
+    will-change: color;
+  }
+  [data-css-header]:hover {
+    color: var(--black);
+    transition: color 1s cubic-bezier(.3, 0, 0, 0.8);
+  }
 
 [data-css-app] {
   margin-top: 1em;

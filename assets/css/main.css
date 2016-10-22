@@ -1,0 +1,83 @@
+:root {
+  /*
+    Breakpoints
+  */
+  --xs-bp: 16.667rem;
+	--s-bp: 22.197rem;
+	--m-bp: 31.250rem;
+	--l-bp: 41.667rem;
+	--xl-bp: 50.00rem;
+
+  /*
+    Colors
+  */
+  --black: #000000;
+  --white: #F8F8FF;
+  --green: #00FF7F;
+  --blue: #1E90FF;
+  --yellow: #FFFACD;
+  --red: #FF6347;
+  --gray: #708090;
+  --dgray: #696969;
+
+  /*
+    Fonts
+  */
+  --base: calc(1vmin + 1rem);
+  --line-base: 2;
+
+  --w-one: 100vw;
+  --w-two: 90vw;
+  --w-three: 85vw;
+  --w-four: 75vw;
+  --w-five: 65vw;
+
+
+  --inline-block: {
+    display: inline-block;
+  };
+  --grid: {
+    display: grid;
+  };
+  --wrap: {
+    flex-wrap: wrap;
+  };
+  --column: {
+    flex-direction: column;
+  };
+  --center: {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  };
+
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--base);
+  line-height: var(--line-base);
+  font-family: -apple-system,
+               BlinkMacSystemFont,
+               "Segoe UI",
+               Roboto,
+               Oxygen-Sans,
+               Ubuntu,
+               Cantarell,
+               "Helvetica Neue",
+               sans-serif;;
+  font-weight: 300;
+  background: var(--white);
+}
+
+[data-css-header] {
+  @apply --center;
+  @apply --column;
+}

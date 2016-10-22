@@ -10,13 +10,11 @@ const PostCount = (count) => {
 
 
 const Post = (post) => {
-  console.log(post);
   return (
     <section data-css-card>
       <h3>{post.post.title}</h3>
-      {post.post.paragraphs.map((paragraph, index) => {
-        return <p key={index}>{paragraph}</p>;
-      })}
+      <p>{post.post.lead}</p>
+      <a href={"./posts/" + post.post.slug}>Read More ➡</a>
     </section>
   );
 };

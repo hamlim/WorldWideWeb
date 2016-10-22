@@ -14,7 +14,9 @@ let subtitles = [
 let posts = [
   {
     title: 'I am a title',
+    slug: 'test',
     id: 1,
+    lead: 'I am the article lead for this post, this should bring people in to read more about it!',
     paragraphs: [
       'I am some content!',
       'I am another paragraph!'
@@ -22,7 +24,9 @@ let posts = [
   },
   {
     title: 'I am another Title!',
+    slug: 'testing',
     id: 2,
+    lead: 'I am the article lead for this post, this should bring people in to read more about it!',
     paragraphs: [
       'I am some more content!',
       'I am another full paragraph with a ton of useful content!'

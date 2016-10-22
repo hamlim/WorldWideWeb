@@ -64,11 +64,15 @@
 	
 	var posts = [{
 	  title: 'I am a title',
+	  slug: 'test',
 	  id: 1,
+	  lead: 'I am the article lead for this post, this should bring people in to read more about it!',
 	  paragraphs: ['I am some content!', 'I am another paragraph!']
 	}, {
 	  title: 'I am another Title!',
+	  slug: 'testing',
 	  id: 2,
+	  lead: 'I am the article lead for this post, this should bring people in to read more about it!',
 	  paragraphs: ['I am some more content!', 'I am another full paragraph with a ton of useful content!']
 	}];
 	var count = posts.length;
@@ -21447,7 +21451,7 @@
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -21462,42 +21466,44 @@
 	
 	var PostCount = function PostCount(count) {
 	  return _react2.default.createElement(
-	    'div',
-	    { 'data-css-u-center': true },
+	    "div",
+	    { "data-css-u-center": true },
 	    _react2.default.createElement(
-	      'u',
+	      "u",
 	      null,
 	      count.count,
-	      ' posts in the backlog.'
+	      " posts in the backlog."
 	    )
 	  );
 	};
 	
 	var Post = function Post(post) {
-	  console.log(post);
 	  return _react2.default.createElement(
-	    'section',
-	    { 'data-css-card': true },
+	    "section",
+	    { "data-css-card": true },
 	    _react2.default.createElement(
-	      'h3',
+	      "h3",
 	      null,
 	      post.post.title
 	    ),
-	    post.post.paragraphs.map(function (paragraph, index) {
-	      return _react2.default.createElement(
-	        'p',
-	        { key: index },
-	        paragraph
-	      );
-	    })
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      post.post.lead
+	    ),
+	    _react2.default.createElement(
+	      "a",
+	      { href: "./posts/" + post.post.slug },
+	      "Read More \u27A1"
+	    )
 	  );
 	};
 	
 	var App = exports.App = function App(props) {
 	  var posts = props.posts; // should be an array
 	  return _react2.default.createElement(
-	    'article',
-	    { 'data-css-u-container': true, 'data-css-app': true },
+	    "article",
+	    { "data-css-u-container": true, "data-css-app": true },
 	    _react2.default.createElement(PostCount, { count: props.count }),
 	    posts.map(function (post, index) {
 	      return _react2.default.createElement(Post, { key: index, post: post });
@@ -21507,16 +21513,16 @@
 	
 	var Header = exports.Header = function Header(props) {
 	  return _react2.default.createElement(
-	    'div',
-	    { 'data-css-header': true },
+	    "div",
+	    { "data-css-header": true },
 	    _react2.default.createElement(
-	      'h1',
-	      { 'data-css-u-container': true },
-	      'Welcome to the WorldWideWeb!'
+	      "h1",
+	      { "data-css-u-container": true },
+	      "Welcome to the WorldWideWeb!"
 	    ),
 	    _react2.default.createElement(
-	      'h2',
-	      { 'data-css-u-container': true },
+	      "h2",
+	      { "data-css-u-container": true },
 	      props.subtitles[Math.floor(Math.random() * props.subtitles.length)]
 	    )
 	  );

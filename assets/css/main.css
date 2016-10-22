@@ -132,34 +132,46 @@ html {
   }
 }
 
-[data-css-u-link] {
+a {
   cursor: pointer;
   text-decoration: none;
   border-bottom: solid 4px var(--green);
   color: var(--blue);
 }
-[data-css-u-link]:visited {
+a:visited {
   color: color(var(--blue) lightness(+ 20%));
   border-bottom: dashed 4px color(var(--green) lightness(+ 20%));
 }
-[data-css-u-link]:hover {
+a:hover {
   color: color(var(--blue) lightness(- 10%));
   border-bottom: dotted 4px color(var(--green) hue(- 120deg));
 }
-[data-css-u-link]:focus {
+a:focus {
   color: color(var(--blue) lightness(- 10%));
   border-bottom: dotted 4px color(var(--green) hue(- 120deg));
 }
-[data-css-u-link]:active {
+a:active {
   color: color(var(--blue) lightness(- 10%));
   border-bottom: dotted 4px color(var(--green) hue(- 120deg));
 }
 
 
-
-[data-css-header] {
+header {
+  height: 100vh;
+  width: 100vw;
   @apply --center;
-  @apply --column;
+  position: relative;
+}
+header::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  content: '🔽';
+  @apply --tac;
+  font-size: 2.5em;
+}
+[data-css-header] {
   @apply --tac;
   color: var(--dgray);
   transition: color 1s cubic-bezier(.3, 0, 0, 0.8);

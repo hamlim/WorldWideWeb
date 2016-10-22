@@ -60,9 +60,21 @@
 	
 	var css = __webpack_require__(173);
 	
-	var subtitles = ['Built on the web, for the web!', 'Filled with awesome GIF\'s', '.Titanic { float: none; }'];
+	var subtitles = ['Built on the web, for the web!', 'Filled with awesome GIF\'s', '.Titanic { float: none; }', '$(\'#app\').init();'];
+	
+	var posts = [{
+	  title: 'I am a title',
+	  id: 1,
+	  paragraphs: ['I am some content!', 'I am another paragraph!']
+	}, {
+	  title: 'I am another Title!',
+	  id: 2,
+	  paragraphs: ['I am some more content!', 'I am another full paragraph with a ton of useful content!']
+	}];
+	var count = posts.length;
 	
 	_reactDom2.default.render(_react2.default.createElement(_components.Header, { subtitles: subtitles }), document.getElementById('headerMount'));
+	_reactDom2.default.render(_react2.default.createElement(_components.App, { count: count, posts: posts }), document.getElementById('appMount'));
 
 /***/ },
 /* 1 */
@@ -21440,7 +21452,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.App = exports.Header = undefined;
+	exports.Header = exports.App = undefined;
 	
 	var _react = __webpack_require__(1);
 	
@@ -21448,24 +21460,67 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var PostCount = function PostCount(count) {
+	  return _react2.default.createElement(
+	    'div',
+	    { 'data-css-u-center': true },
+	    _react2.default.createElement(
+	      'u',
+	      null,
+	      count.count,
+	      ' posts in the backlog.'
+	    )
+	  );
+	};
+	
+	var Post = function Post(post) {
+	  console.log(post);
+	  return _react2.default.createElement(
+	    'section',
+	    { 'data-css-card': true },
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      post.post.title
+	    ),
+	    post.post.paragraphs.map(function (paragraph, index) {
+	      return _react2.default.createElement(
+	        'p',
+	        { key: index },
+	        paragraph
+	      );
+	    })
+	  );
+	};
+	
+	var App = exports.App = function App(props) {
+	  var posts = props.posts; // should be an array
+	  return _react2.default.createElement(
+	    'article',
+	    { 'data-css-u-container': true, 'data-css-app': true },
+	    _react2.default.createElement(PostCount, { count: props.count }),
+	    posts.map(function (post, index) {
+	      return _react2.default.createElement(Post, { key: index, post: post });
+	    })
+	  );
+	};
+	
 	var Header = exports.Header = function Header(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    { 'data-css-header': true },
 	    _react2.default.createElement(
 	      'h1',
-	      null,
+	      { 'data-css-u-container': true },
 	      'Welcome to the WorldWideWeb!'
 	    ),
 	    _react2.default.createElement(
 	      'h2',
-	      null,
+	      { 'data-css-u-container': true },
 	      props.subtitles[Math.floor(Math.random() * props.subtitles.length)]
 	    )
 	  );
 	};
-	
-	var App = exports.App = function App(props) {};
 
 /***/ },
 /* 173 */
@@ -21502,7 +21557,7 @@
 	
 	
 	// module
-	exports.push([module.id, ":root {\n  /*\n    Breakpoints\n  */\n\n  /*\n    Colors\n  */\n\n  /*\n    Fonts\n  */;\n\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nhtml {\n  font-size: calc(1vmin + 1rem);\n  line-height: 2;\n  font-family: -apple-system,\n               BlinkMacSystemFont,\n               \"Segoe UI\",\n               Roboto,\n               Oxygen-Sans,\n               Ubuntu,\n               Cantarell,\n               \"Helvetica Neue\",\n               sans-serif;;\n  font-weight: 300;\n  background: #F8F8FF;\n}\n\n[data-css-header] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n", ""]);
+	exports.push([module.id, ":root {\n  /*\n    Breakpoints\n  */\n\n  /*\n    Colors\n  */\n\n  /*\n    Fonts\n  */;\n\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nhtml {\n  font-size: calc(.5vmin + 1rem);\n  line-height: 1.6;\n  font-family: -apple-system,\n               BlinkMacSystemFont,\n               \"Segoe UI\",\n               Roboto,\n               Oxygen-Sans,\n               Ubuntu,\n               Cantarell,\n               \"Helvetica Neue\",\n               sans-serif;;\n  font-weight: 300;\n  background: #F8F8FF;\n}\n\n/*\n\n  Utilities\n\n*/\n[data-css-u-center] {\n  text-align: center;\n}\n\n[data-css-u-container] {\n  max-width: 100vw;\n  margin: 0 auto;\n}\n@media (min-width: 16.667rem) {\n  [data-css-u-container] {\n    width: 100vw;\n  }\n}\n@media (min-width: 22.197rem) {\n  [data-css-u-container] {\n    width: 90vw;\n  }\n}\n@media (min-width: 31.250rem) {\n  [data-css-u-container] {\n    width: 85vw;\n  }\n}\n@media (min-width: 41.667rem) {\n  [data-css-u-container] {\n    width: 75vw;\n  }\n}\n@media (min-width: 50.00rem) {\n  [data-css-u-container] {\n    width: 65vw;\n  }\n}\n\n[data-css-header] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  text-align: center;\n  color: #696969;\n  -webkit-transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n  transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n  will-change: color;\n}\n[data-css-header]:hover {\n  color: #000000;\n  -webkit-transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n  transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n}\n\n[data-css-app] {\n  margin-top: 1em;\n  font-size: 80%;\n}\n\n  [data-css-card] {\n    background-color: #FFF5EE;\n    border-top-left-radius: 1em;\n    border-bottom-right-radius: 1em;\n    border-top-right-radius: 0;\n    border-bottom-left-radius: 0;\n    padding: 1em;\n    margin: 0 0 1em;\n    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n    position: relative;\n    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);\n    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);\n  }\n  [data-css-card]::after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    border-top-left-radius: 1em;\n    border-bottom-right-radius: 1em;\n    border-top-right-radius: 0;\n    border-bottom-left-radius: 0;\n    z-index: -1;\n    width: 100%;\n    height: 100%;\n    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3);\n    opacity: 0;\n    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);\n    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);\n  }\n  [data-css-card]:hover {\n    -webkit-transform: scale(1.0005);\n            transform: scale(1.0005);\n    box-shadow: none;\n  }\n  [data-css-card]:hover::after {\n    opacity: 1;\n  }\n", ""]);
 	
 	// exports
 

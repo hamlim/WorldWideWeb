@@ -13,6 +13,7 @@
   */
   --black: #000000;
   --white: #F8F8FF;
+  --off-white: #FFF5EE;
   --green: #00FF7F;
   --blue: #1E90FF;
   --yellow: #FFFACD;
@@ -23,8 +24,8 @@
   /*
     Fonts
   */
-  --base: calc(1vmin + 1rem);
-  --line-base: 2;
+  --base: calc(.5vmin + 1rem);
+  --line-base: 1.6;
 
   --w-one: 100vw;
   --w-two: 90vw;
@@ -50,8 +51,22 @@
     justify-content: center;
     align-items: center;
   };
+  --tac: {
+    text-align: center;
+  };
+  --bordered: {
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  };
 
 }
+@custom-media --xs-viewport (min-width: 16.667rem);
+@custom-media --s-viewport (min-width: 22.197rem);
+@custom-media --m-viewport (min-width: 31.250rem);
+@custom-media --l-viewport (min-width: 41.667rem);
+@custom-media --xl-viewport (min-width: 50.00rem);
 
 *,
 *::before,
@@ -77,7 +92,89 @@ html {
   background: var(--white);
 }
 
+/*
+
+  Utilities
+
+*/
+[data-css-u-center] {
+  @apply --tac;
+}
+
+[data-css-u-container] {
+  max-width: 100vw;
+  margin: 0 auto;
+}
+@media (--xs-viewport) {
+  [data-css-u-container] {
+    width: var(--w-one);
+  }
+}
+@media (--s-viewport) {
+  [data-css-u-container] {
+    width: var(--w-two);
+  }
+}
+@media (--m-viewport) {
+  [data-css-u-container] {
+    width: var(--w-three);
+  }
+}
+@media (--l-viewport) {
+  [data-css-u-container] {
+    width: var(--w-four);
+  }
+}
+@media (--xl-viewport) {
+  [data-css-u-container] {
+    width: var(--w-five);
+  }
+}
+
 [data-css-header] {
   @apply --center;
   @apply --column;
+  @apply --tac;
+  color: var(--dgray);
+  transition: color 1s cubic-bezier(.3, 0, 0, 0.8);
+  will-change: color;
 }
+[data-css-header]:hover {
+  color: var(--black);
+  transition: color 1s cubic-bezier(.3, 0, 0, 0.8);
+}
+
+[data-css-app] {
+  margin-top: 1em;
+  font-size: 80%;
+}
+
+  [data-css-card] {
+    background-color: var(--off-white);
+    @apply --bordered;
+    padding: 1em;
+    margin: 0 0 1em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  [data-css-card]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    @apply --bordered;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  [data-css-card]:hover {
+    transform: scale(1.0005);
+    box-shadow: none;
+  }
+  [data-css-card]:hover::after {
+    opacity: 1;
+  }

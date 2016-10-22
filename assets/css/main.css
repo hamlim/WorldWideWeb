@@ -154,27 +154,6 @@ html {
     @apply --bordered;
     padding: 1em;
     margin: 0 0 1em;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);
     position: relative;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-  [data-css-card]::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    @apply --bordered;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-  [data-css-card]:hover {
-    transform: scale(1.0005);
-    box-shadow: none;
-  }
-  [data-css-card]:hover::after {
-    opacity: 1;
   }

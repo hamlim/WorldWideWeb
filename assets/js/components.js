@@ -14,7 +14,7 @@ const Post = (post) => {
     <section data-css-card>
       <h3>{post.post.title}</h3>
       <p>{post.post.lead}</p>
-      <a href={"./posts/" + post.post.slug}>Read More ➡</a>
+      <a data-css-u-link data-css-read-more href={"./posts/" + post.post.slug}>Read More ➡</a>
     </section>
   );
 };

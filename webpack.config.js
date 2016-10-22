@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var cssnext = require('postcss-cssnext')({features: {rem: {html: false}}});
+var postcolor = require('postcss-color-function');
 
 module.exports = {
 	entry: './app.js',
@@ -27,6 +28,6 @@ module.exports = {
 		]
 	},
   postcss: function () {
-    return [cssnext];
+    return [cssnext, postcolor];
   }
 }

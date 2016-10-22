@@ -74,6 +74,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none !important;
 }
 
 html {
@@ -131,6 +132,31 @@ html {
   }
 }
 
+[data-css-u-link] {
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: solid 4px var(--green);
+  color: var(--blue);
+}
+[data-css-u-link]:visited {
+  color: color(var(--blue) lightness(+ 20%));
+  border-bottom: dashed 4px color(var(--green) lightness(+ 20%));
+}
+[data-css-u-link]:hover {
+  color: color(var(--blue) lightness(- 10%));
+  border-bottom: dotted 4px color(var(--green) hue(- 120deg));
+}
+[data-css-u-link]:focus {
+  color: color(var(--blue) lightness(- 10%));
+  border-bottom: dotted 4px color(var(--green) hue(- 120deg));
+}
+[data-css-u-link]:active {
+  color: color(var(--blue) lightness(- 10%));
+  border-bottom: dotted 4px color(var(--green) hue(- 120deg));
+}
+
+
+
 [data-css-header] {
   @apply --center;
   @apply --column;
@@ -157,3 +183,12 @@ html {
     box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);
     position: relative;
   }
+  [data-css-card]::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+    [data-css-read-more] {
+      float: right;
+    }

@@ -16,6 +16,7 @@
     "babel-preset-es2017": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.25.0",
+    "postcss-color-function": "^2.0.1",
     "postcss-cssnext": "^2.8.0",
     "postcss-loader": "^1.0.0",
     "react": "^15.3.2",

@@ -62,32 +62,7 @@
 	
 	var subtitles = ['Built on the web, for the web!', 'Filled with awesome GIF\'s', '.Titanic { float: none; }', '$(\'#app\').init();'];
 	
-	var posts = [
-	  // {
-	  //   title: 'I am a title',
-	  //   slug: 'test',
-	  //   id: 1,
-	  //   lead: 'I am the article lead for this post, this should bring people in to read more about it!',
-	  //   paragraphs: [
-	  //     'I am some content!',
-	  //     'I am another paragraph!'
-	  //   ]
-	  // },
-	  // {
-	  //   title: 'I am another Title!',
-	  //   slug: 'testing',
-	  //   id: 2,
-	  //   lead: 'I am the article lead for this post, this should bring people in to read more about it!',
-	  //   paragraphs: [
-	  //     'I am some more content!',
-	  //     'I am another full paragraph with a ton of useful content!'
-	  //   ]
-	  // }
-	];
-	var count = posts.length;
-	
 	_reactDom2.default.render(_react2.default.createElement(_components.Header, { subtitles: subtitles }), document.getElementById('headerMount'));
-	_reactDom2.default.render(_react2.default.createElement(_components.App, { count: count, posts: posts }), document.getElementById('appMount'));
 
 /***/ },
 /* 1 */
@@ -21465,60 +21440,13 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Header = exports.App = undefined;
+	exports.Header = undefined;
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var PostCount = function PostCount(count) {
-	  return _react2.default.createElement(
-	    "div",
-	    { "data-css-u-center": true },
-	    _react2.default.createElement(
-	      "u",
-	      null,
-	      count.count,
-	      " posts in the backlog."
-	    )
-	  );
-	};
-	
-	var Post = function Post(post) {
-	  return _react2.default.createElement(
-	    "section",
-	    { "data-css-card": true },
-	    _react2.default.createElement(
-	      "h3",
-	      null,
-	      post.post.title
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      post.post.lead
-	    ),
-	    _react2.default.createElement(
-	      "a",
-	      { "data-css-read-more": true, href: "./posts/" + post.post.slug },
-	      "Read More \u27A1"
-	    )
-	  );
-	};
-	
-	var App = exports.App = function App(props) {
-	  var posts = props.posts; // should be an array
-	  return _react2.default.createElement(
-	    "article",
-	    { "data-css-u-container": true, "data-css-app": true },
-	    _react2.default.createElement(PostCount, { count: props.count }),
-	    posts.map(function (post, index) {
-	      return _react2.default.createElement(Post, { key: index, post: post });
-	    })
-	  );
-	};
 	
 	var Header = exports.Header = function Header(props) {
 	  return _react2.default.createElement(
@@ -21530,9 +21458,18 @@
 	      "Welcome to the WorldWideWeb!"
 	    ),
 	    _react2.default.createElement(
-	      "h2",
+	      "marquee",
+	      null,
+	      _react2.default.createElement(
+	        "h2",
+	        { "data-css-u-container": true, className: "subtitle" },
+	        props.subtitles[Math.floor(Math.random() * props.subtitles.length)]
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "h3",
 	      { "data-css-u-container": true },
-	      props.subtitles[Math.floor(Math.random() * props.subtitles.length)]
+	      "More coming soon!"
 	    )
 	  );
 	};
@@ -21572,7 +21509,7 @@
 	
 	
 	// module
-	exports.push([module.id, ":root {\n  /*\n    Breakpoints\n  */\n\n  /*\n    Colors\n  */\n\n  /*\n    Fonts\n  */;\n\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  outline: none !important;\n}\n\nhtml {\n  font-size: calc(.5vmin + 1rem);\n  line-height: 1.6;\n  font-family: -apple-system,\n               BlinkMacSystemFont,\n               \"Segoe UI\",\n               Roboto,\n               Oxygen-Sans,\n               Ubuntu,\n               Cantarell,\n               \"Helvetica Neue\",\n               sans-serif;;\n  font-weight: 300;\n  background: #F8F8FF;\n}\n\n/*\n\n  Utilities\n\n*/\n[data-css-u-center] {\n  text-align: center;\n}\n\n[data-css-u-container] {\n  max-width: 100vw;\n  margin: 0 auto;\n}\n@media (min-width: 16.667rem) {\n  [data-css-u-container] {\n    width: 100vw;\n  }\n}\n@media (min-width: 22.197rem) {\n  [data-css-u-container] {\n    width: 90vw;\n  }\n}\n@media (min-width: 31.250rem) {\n  [data-css-u-container] {\n    width: 85vw;\n  }\n}\n@media (min-width: 41.667rem) {\n  [data-css-u-container] {\n    width: 75vw;\n  }\n}\n@media (min-width: 50.00rem) {\n  [data-css-u-container] {\n    width: 65vw;\n  }\n}\n\na {\n  cursor: pointer;\n  text-decoration: none;\n  border-bottom: solid 4px #00FF7F;\n  color: #1E90FF;\n}\na:visited {\n  color: rgb(133, 194, 255);\n  border-bottom: dashed 4px rgb(102, 255, 179);\n}\na:hover {\n  color: rgb(0, 117, 235);\n  border-bottom: dotted 4px rgb(255, 128, 0);\n}\na:focus {\n  color: rgb(0, 117, 235);\n  border-bottom: dotted 4px rgb(255, 128, 0);\n}\na:active {\n  color: rgb(0, 117, 235);\n  border-bottom: dotted 4px rgb(255, 128, 0);\n}\n\n\n[data-css-mesh] {\n  width: 100vw;\n  overflow: hidden;\n  height: 160px;\n  height: 10rem;\n  position: absolute;\n  z-index: -2;\n  top: 0;\n  left: 0;\n  box-shadow: 0 1em 9em 1em #00FF7F;\n}\n\nheader {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  position: relative;\n}\nheader::after {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100vw;\n  content: '\\1F53D';\n  text-align: center;\n  font-size: 2.5em;\n}\n  [data-css-header] {\n    text-align: center;\n    color: #696969;\n    -webkit-transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n    transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n    will-change: color;\n  }\n  [data-css-header]:hover {\n    color: #000000;\n    -webkit-transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n    transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n  }\n\n[data-css-app] {\n  margin-top: 1em;\n  font-size: 80%;\n}\n\n  [data-css-card] {\n    background-color: #FFF5EE;\n    border-top-left-radius: 1em;\n    border-bottom-right-radius: 1em;\n    border-top-right-radius: 0;\n    border-bottom-left-radius: 0;\n    padding: 1em;\n    margin: 0 0 1em;\n    box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);\n    position: relative;\n  }\n  [data-css-card]::after {\n    clear: both;\n    content: '';\n    display: table;\n  }\n\n    [data-css-read-more] {\n      float: right;\n    }\n", ""]);
+	exports.push([module.id, ":root {\n  /*\n    Breakpoints\n  */\n\n  /*\n    Colors\n  */\n\n  /*\n    Fonts\n  */;\n\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  outline: none !important;\n}\n\nhtml {\n  font-size: calc(.5vmin + 1rem);\n  line-height: 1.6;\n  font-family: -apple-system,\n               BlinkMacSystemFont,\n               \"Segoe UI\",\n               Roboto,\n               Oxygen-Sans,\n               Ubuntu,\n               Cantarell,\n               \"Helvetica Neue\",\n               sans-serif;;\n  font-weight: 300;\n  background: #F8F8FF;\n}\n\n/*\n\n  Utilities\n\n*/\n[data-css-u-center] {\n  text-align: center;\n}\n\n[data-css-u-container] {\n  max-width: 100vw;\n  margin: 0 auto;\n}\n@media (min-width: 16.667rem) {\n  [data-css-u-container] {\n    width: 100vw;\n  }\n}\n@media (min-width: 22.197rem) {\n  [data-css-u-container] {\n    width: 90vw;\n  }\n}\n@media (min-width: 31.250rem) {\n  [data-css-u-container] {\n    width: 85vw;\n  }\n}\n@media (min-width: 41.667rem) {\n  [data-css-u-container] {\n    width: 75vw;\n  }\n}\n@media (min-width: 50.00rem) {\n  [data-css-u-container] {\n    width: 65vw;\n  }\n}\n\na {\n  cursor: pointer;\n  text-decoration: none;\n  border-bottom: solid 4px #00FF7F;\n  color: #1E90FF;\n}\na:visited {\n  color: rgb(133, 194, 255);\n  border-bottom: dashed 4px rgb(102, 255, 179);\n}\na:hover {\n  color: rgb(0, 117, 235);\n  border-bottom: dotted 4px rgb(255, 128, 0);\n}\na:focus {\n  color: rgb(0, 117, 235);\n  border-bottom: dotted 4px rgb(255, 128, 0);\n}\na:active {\n  color: rgb(0, 117, 235);\n  border-bottom: dotted 4px rgb(255, 128, 0);\n}\n\n\n[data-css-mesh] {\n  width: 100vw;\n  overflow: hidden;\n  height: 160px;\n  height: 10rem;\n  position: absolute;\n  z-index: -2;\n  top: 0;\n  left: 0;\n  box-shadow: 0 1em 9em 1em #00FF7F;\n}\n\nheader {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  position: relative;\n}\nheader::after {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100vw;\n  content: '\\1F525';\n  text-align: center;\n  font-size: 2.5em;\n}\n  [data-css-header] {\n    text-align: center;\n    color: #696969;\n    -webkit-transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n    transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n    will-change: color;\n  }\n  [data-css-header]:hover {\n    color: #000000;\n    -webkit-transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n    transition: color 1s cubic-bezier(.3, 0, 0, 0.8);\n  }\n  [class=\"subtitle\"] {\n    -webkit-animation: woop .5s infinite;\n            animation: woop .5s infinite;\n  }\n\n[data-css-app] {\n  margin-top: 1em;\n  font-size: 80%;\n}\n\n  [data-css-card] {\n    background-color: #FFF5EE;\n    border-top-left-radius: 1em;\n    border-bottom-right-radius: 1em;\n    border-top-right-radius: 0;\n    border-bottom-left-radius: 0;\n    padding: 1em;\n    margin: 0 0 1em;\n    box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);\n    position: relative;\n  }\n  [data-css-card]::after {\n    clear: both;\n    content: '';\n    display: table;\n  }\n\n    [data-css-read-more] {\n      float: right;\n    }\n\n\n@-webkit-keyframes woop {\n  0%, 100% {\n    color: #00FF7F;\n  }\n  20% {\n    color: #1E90FF;\n  }\n  40% {\n    color: #FF6347;\n  }\n  60% {\n    color: #FFFACD;\n  }\n  80% {\n    color: #708090;\n  }\n}\n\n\n@keyframes woop {\n  0%, 100% {\n    color: #00FF7F;\n  }\n  20% {\n    color: #1E90FF;\n  }\n  40% {\n    color: #FF6347;\n  }\n  60% {\n    color: #FFFACD;\n  }\n  80% {\n    color: #708090;\n  }\n}\n", ""]);
 	
 	// exports
 
